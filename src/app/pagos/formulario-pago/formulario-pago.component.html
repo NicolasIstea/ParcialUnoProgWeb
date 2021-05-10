@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<h1 class="display-1">{{titulo}}</h1>
+<mat-sidenav-container>
+    <mat-sidenav-content>
+      <form [formGroup]="pagoFormulario" (ngSubmit)="submitFormulario()" novalidate>
+        
+        <mat-form-field class="example-full-width">
+          <mat-label>Descripcion</mat-label>
+          <input matInput placeholder="Descripcion" formControlName="descripcion">
+          <mat-error *ngIf="pagoFormulario.get('descripcion')!.hasError('required')">
+            El Campo descripcion es requerido.
+          </mat-error>
+          <mat-error *ngIf="pagoFormulario.get('descripcion')!.hasError('pattern')">
+            El Campo descripcion debe contener solo letras.
+          </mat-error>
+          <mat-error *ngIf="pagoFormulario.get('descripcion')!.hasError('maxLength')">
+            El campo no puede contener mas de 20 letras.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Deuda</mat-label>
+          <input matInput placeholder="Deuda" formControlName="deuda">
+          <mat-error *ngIf="pagoFormulario.get('deuda')!.hasError('required')">
+            El Campo Deuda es requerido.
+          </mat-error>
+          <mat-error *ngIf="pagoFormulario.get('deuda')!.hasError('pattern')">
+            El Campo Deuda debe contener solo numeros (#.##) y no mas de dos decimales.
+          </mat-error>
+          <mat-error *ngIf="pagoFormulario.get('deuda')!.hasError('max')">
+            El Campo Deuda no puede ser mayor a 10.000.
+          </mat-error>
+          <mat-error *ngIf="pagoFormulario.get('deuda')!.hasError('min')">
+            El Campo Deuda no puede ser menor a 100.
+          </mat-error>
+        </mat-form-field>
+
+        <div class="misc-bottom-padding">
+          <mat-label [ngStyle]="{'color': 'rgba(0,0,0,.54)'}">Esta pago</mat-label>
+          <mat-radio-group aria-label="seleccione una opcion" formControlName="pagado">
+            <br>
+            <mat-radio-button [value]="true">Si</mat-radio-button>
+            <br>
+            <mat-radio-button [value]="false">No</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        
+        <mat-form-field class="example-full-width">
+          <mat-label>Metodo De Pago</mat-label>
+          <mat-select [(value)]="metodoDePagoSeleccionado" [compareWith]="objectComparisonFunction" formControlName="metodoDePago">
+            <mat-option [value]="metodoDePago" *ngFor="let metodoDePago of metodosDePago">{{metodoDePago.descripcion}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="pagoFormulario.get('metodoDePago')!.hasError('required')">
+            Debe elegir un metodo de pago.
+          </mat-error>
+        </mat-form-field>
+        
+
+        <div class="button-wrapper">
+          <button mat-flat-button color="primary">{{tipoAccion}}</button>
+        </div>
+         
+      </form>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="btn-group" role="group">
+  <button class="btn btn-primary" [routerLink]="['/pago']">Ir a Lista de Pagos</button>
+  <button class="btn btn-secondary" *ngIf="idAEditar > 0" [routerLink]="['/pago-nuevo']">Crear Pago</button>
+</div>

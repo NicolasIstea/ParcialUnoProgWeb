@@ -1,0 +1,8 @@
+.inline-block {
+    display: inline-block;
+}
+
+mat-card {
+    max-width: 400px;
+    margin: 10px;
+}

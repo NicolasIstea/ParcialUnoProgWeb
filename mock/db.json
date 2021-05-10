@@ -1,0 +1,48 @@
+{
+  "pagos": [
+    {
+      "descripcion": "Luz",
+      "deuda": 10000,
+      "pagado": true,
+      "metodoDePago": {
+        "id": 1,
+        "descripcion": "Efectivo"
+      },
+      "id": 1
+    },
+    {
+      "descripcion": "Gas",
+      "deuda": 4000,
+      "pagado": true,
+      "metodoDePago": {
+        "id": 2,
+        "descripcion": "Tarjeta de Credito"
+      },
+      "id": 2
+    },
+    {
+      "descripcion": "Agua",
+      "deuda": 1000,
+      "pagado": false,
+      "metodoDePago": {
+        "id": 3,
+        "descripcion": "Tarjeta de Debito"
+      },
+      "id": 3
+    }
+  ],
+  "metodosDePago": [
+    {
+      "id": 1,
+      "descripcion": "Efectivo"
+    },
+    {
+      "id": 2,
+      "descripcion": "Tarjeta de Credito"
+    },
+    {
+      "id": 3,
+      "descripcion": "Tarjeta de Debito"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+div > img{
+    width: 25%;
+}
+
+ul > li:nth-child(3){
+    margin-right: 10px;
+}

@@ -1,0 +1,32 @@
+<h1 class="display-4" mat-dialog-title>Resumen del pago:</h1>
+
+<div mat-dialog-content>
+
+    <h2>Informacion</h2>
+
+    <mat-card>
+      <mat-card-title>Descripcion</mat-card-title>
+      <mat-card-subtitle>{{data.descripcion}}</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Deuda</mat-card-title>
+      <mat-card-subtitle>{{data.deuda}}</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>¿Esta Pago?</mat-card-title>
+      <mat-card-subtitle>{{data.pagado === true ? 'Si' : 'No'}}</mat-card-subtitle>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Metodo de pago</mat-card-title>
+      <mat-card-subtitle>{{data.metodoDePago.descripcion}}</mat-card-subtitle>
+    </mat-card>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrarModal" [routerLink]="['/pago-nuevo']">Crear otro Pago</button>
+  <button mat-button [routerLink]="['/pago']" (click)="cerrarModal()" cdkFocusInitial>Volver a la lista de pagos</button>
+</div>

@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+div.mat-elevation-z8 > div:nth-child(1) {
+  padding: 1% 1% 
+}
+
+div.mat-elevation-z8 > div:nth-child(1) > div {
+  margin-left:40%;
+}
+
+td > button {
+  padding: 0% 0%;
+}
+
+.efectivoBold {
+  font-weight: bold;
+}
